@@ -9,6 +9,7 @@
     "dev": "pnpm -r dev",
     "common": "pnpm -F @react-monorepo/common",
     "test": "pnpm -r test",
+    "test:all": "jest",
     "prepare": "husky install"
   },
   "engines": {
