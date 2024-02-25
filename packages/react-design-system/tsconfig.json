@@ -19,8 +19,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    //paths
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src", "jest.setup.ts"],
+  "include": ["src", "jest.setup.ts", "styles", ".storybook"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
