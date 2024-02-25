@@ -1,5 +1,13 @@
+import { Button } from "./atom/Button";
+
 const App = () => {
-  return <h1> hello world </h1>;
+  return (
+    <>
+      <Button>버튼</Button>
+      <Button variant="cancel">버튼</Button>
+      <Button variant="outline">버튼</Button>
+    </>
+  );
 };
 
 export default App;
