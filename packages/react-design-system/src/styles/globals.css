@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+  outline: none;
+}
+
+.text {
+  @apply text-black dark:text-white;
+}
