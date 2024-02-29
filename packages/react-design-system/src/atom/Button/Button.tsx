@@ -2,11 +2,9 @@ import { PolymorphicComponentProps, PolymorphicRef } from "@/types/PolymorphicCo
 import { generateClassName } from "@/utils/generateClassName";
 import React, { forwardRef } from "react";
 
-type ButtonStyleType = "outline" | "none" | "cancel" | "primary";
-
 type ButtonProps<T extends React.ElementType> = {
   size?: keyof typeof ButtonSizeMap;
-  variant?: ButtonStyleType;
+  variant?: keyof typeof ButtonVariantMap;
 } & PolymorphicComponentProps<T>;
 
 type ForwardRefButtonComopnent = <T extends React.ElementType = "button">(
@@ -16,8 +14,15 @@ type ForwardRefButtonComopnent = <T extends React.ElementType = "button">(
 
 const ButtonSizeMap = {
   sm: " w-[4rem] h-[2rem] text-sm rounded-sm",
-  md: " w-[6rem] h-[3rem] text-md rounded-md",
-  lg: " w-[8rem] h-[4rem] text-xl rounded-lg",
+  md: " w-[4rem] h-[2.5rem] text-md rounded-md",
+  lg: " w-[4rem] h-[3rem] text-xl rounded-lg",
+};
+
+const ButtonVariantMap = {
+  outline: "border border-gray-300",
+  primary: " bg-teal-400 text-white",
+  warning: "bg-red-400 text-white",
+  none: "",
 };
 
 export const ButtonComponet = <T extends React.ElementType = "button">(
@@ -37,10 +42,8 @@ export const ButtonComponet = <T extends React.ElementType = "button">(
   const tailwind = generateClassName(
     "cursor-pointer flex justify-center items-center",
     ButtonSizeMap[size],
-    variant === "outline" && " border border-gray-300 ",
-    variant === "primary" && " bg-teal-400 text-white",
-    variant === "cancel" && "bg-red-400 text-white",
-    props.disabled && "bg-gray-300",
+    ButtonVariantMap[variant],
+    props.disabled && "bg-gray-400",
     className
   );
 

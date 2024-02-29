@@ -14,22 +14,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
+export const Primary: Story = {
   args: {
-    size: "sm",
+    size: "md",
     children: "Button",
   },
 };
 
-export const Midium: Story = {
+export const Warning: Story = {
   args: {
+    size: "md",
     children: "Button",
+    variant: "warning",
   },
 };
 
-export const Large: Story = {
+export const Outline: Story = {
   args: {
-    size: "lg",
+    size: "md",
     children: "Button",
+    variant: "outline",
   },
 };
