@@ -13,9 +13,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
-  args: {
-    direction: "horizontal",
-    className: "w-40",
+export const Direction: Story = {
+  args: {},
+  render() {
+    return (
+      <div className="w-40 h-40">
+        <h1>Horizontal</h1>
+        <DividerLine direction="horizontal" className="w-full" />
+        <h1>Vertical</h1>
+        <DividerLine direction="vertical" className="h-full" />
+      </div>
+    );
   },
 };
