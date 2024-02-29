@@ -13,8 +13,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
+export const Default: Story = {
   args: {
     children: "Text",
+  },
+};
+
+export const Size: Story = {
+  args: {
+    children: "Text",
+  },
+  render({ children }) {
+    return (
+      <ul>
+        <li>
+          <h1>sm</h1>
+          <Text size="sm">{children}</Text>
+        </li>
+        <li>
+          <h1>md</h1>
+          <Text size="md">{children}</Text>
+        </li>
+        <li>
+          <h1>lg</h1>
+          <Text size="lg">{children}</Text>
+        </li>
+        <li>
+          <h1>xl</h1>
+          <Text size="xl">{children}</Text>
+        </li>
+        <li>
+          <h1>2xl</h1>
+          <Text size="2xl">{children}</Text>
+        </li>
+      </ul>
+    );
   },
 };
