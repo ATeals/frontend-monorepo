@@ -24,5 +24,23 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  features: {
+    buildStoriesJson: true,
+  },
+
+  refs: (config, { configType }) =>
+    configType === "DEVELOPMENT"
+      ? {
+          "react-design-system": {
+            title: "React Design System",
+            url: "http://localhost:6006",
+          },
+        }
+      : {
+          "react-design-system": {
+            title: "React Design System",
+            url: "",
+          },
+        },
 };
 export default config;
