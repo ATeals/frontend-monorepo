@@ -1,8 +1,11 @@
 {
-  "name": "react-design-system",
+  "name": "@repo/react-design-system",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "exports": {
+    "./atom": "./src/atom/index.tsx"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
