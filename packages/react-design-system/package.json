@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    "./atom": "./src/atom/index.tsx"
+    "./atom": "./src/atom/index.tsx",
+    "./util": "./src/utils/index.tsx"
   },
   "scripts": {
     "dev": "vite",

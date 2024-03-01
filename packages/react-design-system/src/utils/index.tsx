@@ -1,0 +1,1 @@
+export { generateClassName } from "./generateClassName";
