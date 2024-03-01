@@ -2,6 +2,8 @@
 
 StoryBook으로 관리하는 리액트 디자인 시스템
 
+[🔗StoryBook](https://65e231600d8b62ce11b26631-eonvobivpt.chromatic.com/?path=/docs/atoms-text--docs)
+
 ## 의존성
 
 <p>
