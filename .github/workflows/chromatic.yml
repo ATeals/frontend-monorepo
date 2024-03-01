@@ -1,7 +1,7 @@
 name: "Chromatic Deployment"
 
 on:
-  pull_request:
+  push:
     branches: [main]
     paths:
       - packages/react-design-system/src/**
