@@ -3,8 +3,8 @@ import { CSSProperties } from "react";
 export const getFlexStyles = (style: FlexStyles & Omit<CSSProperties, "direction">) => ({
   display: "flex",
   flexDirection: style.direction,
-  justifyContent: style.justify,
-  alignItems: style.align,
+  justifyContent: style.justify || "center",
+  alignItems: style.align || "center",
   ...{ ...style, direction: style.cssDirection },
 });
 
