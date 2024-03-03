@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Heading } from "./Heading";
 
+/**
+ * 다형성 Heading 컴포넌트
+ */
 const meta = {
   title: "Atoms/Heading",
   component: Heading,

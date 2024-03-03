@@ -1,15 +1,15 @@
+import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
-import { ComponentPropsWithoutRef } from "react";
 
 type DividerLineProps = {
   direction?: "horizontal" | "vertical";
-} & ComponentPropsWithoutRef<"div">;
+};
 
 export const DividerLine = ({
   direction = "horizontal",
   className,
   ...props
-}: DividerLineProps) => {
+}: PolymorphicComponentProps<"div", DividerLineProps>) => {
   const tailwind = generateClassName(
     "border-gray-300",
     direction === "horizontal" && `border-b-2 w-full`,

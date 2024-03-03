@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
 
+/**
+ * 다형성 Text 컴포넌트
+ */
 const meta = {
   title: "Atoms/Text",
   component: Text,

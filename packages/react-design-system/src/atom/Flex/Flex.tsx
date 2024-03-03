@@ -1,18 +1,20 @@
+import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 import { CSSProperties } from "react";
 import { FlexStyles, getFlexStyles } from "./Flex.styles";
+import { AsChildProps, Slot } from "@/common/Slot";
 
-type FlexProps<T extends React.ElementType> = {
+type FlexProps = {
   style?: FlexStyles & Omit<CSSProperties, "direction">;
-  as?: T;
-} & Omit<React.ComponentPropsWithoutRef<T>, "style">;
+} & AsChildProps;
 
 export const Flex = <T extends React.ElementType = "div">({
   as,
   style = {},
+  asChild,
   ...props
-}: FlexProps<T>) => {
-  const Element = as || "div";
+}: PolymorphicComponentProps<T, FlexProps>) => {
+  const Element = asChild ? Slot : as || "div";
 
   const tailwind = generateClassName("flex", props.className);
 

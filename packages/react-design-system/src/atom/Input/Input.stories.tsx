@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./Input";
 
+/**
+ * Input 컴포넌트
+ *
+ * text type 스타일
+ */
 const meta = {
   title: "Atoms/Input",
   component: Input,

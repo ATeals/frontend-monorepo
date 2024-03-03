@@ -1,11 +1,12 @@
+import { AsChildProps, Slot } from "@/common/Slot";
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 
-type RingProps<T extends React.ElementType> = {
+type RingProps = {
   size?: keyof typeof RingSizeMap;
   fill?: boolean;
   variant?: keyof (typeof RingVariantMap)["ring"];
-} & PolymorphicComponentProps<T>;
+} & AsChildProps;
 
 const RingSizeMap = {
   sm: "  w-[2rem] h-[2rem]",
@@ -33,22 +34,21 @@ export const Ring = <T extends React.ElementType = "div">({
   size = "md",
   variant = "default",
   fill = false,
-  children,
-  className,
+  asChild,
   ...props
-}: RingProps<T>) => {
-  const Element = as || "div";
+}: PolymorphicComponentProps<T, RingProps>) => {
+  const Element = asChild ? Slot : as || "div";
 
   const tailwind = generateClassName(
     "rounded-[50%] flex justify-center items-center overflow-hidden",
     fill ? RingVariantMap.fill[variant] : RingVariantMap.ring[variant],
     RingSizeMap[size],
-    className
+    props.className
   );
 
   return (
     <Element className={tailwind} {...props}>
-      {children}
+      {props.children}
     </Element>
   );
 };

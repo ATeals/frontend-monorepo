@@ -1,9 +1,10 @@
+import { AsChildProps, Slot } from "@/common/Slot";
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 
-type HeadingProps<T extends React.ElementType> = {
+type HeadingProps = {
   size?: keyof typeof HeadingSizeMap;
-} & PolymorphicComponentProps<T>;
+} & AsChildProps;
 
 const HeadingSizeMap = {
   sm: "text-xl",
@@ -18,9 +19,10 @@ export const Heading = <T extends React.ElementType = "h1">({
   size = "md",
   children,
   className,
+  asChild,
   ...props
-}: HeadingProps<T>) => {
-  const Element = as || "h1";
+}: PolymorphicComponentProps<T, HeadingProps>) => {
+  const Element = asChild ? Slot : as || "h1";
 
   const tailwind = generateClassName("font-bold", HeadingSizeMap[size], className);
 

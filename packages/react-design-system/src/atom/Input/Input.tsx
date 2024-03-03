@@ -1,5 +1,5 @@
+import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
-import { ComponentPropsWithoutRef } from "react";
 
 type InputProps = {
   size?: keyof typeof InputSizeMap;
@@ -7,7 +7,7 @@ type InputProps = {
   label?: string;
   subText?: string;
   icon?: React.ReactNode;
-} & Omit<ComponentPropsWithoutRef<"input">, "size">;
+};
 
 const InputSizeMap = {
   sm: " w-[18rem] h-[2rem] text-sm rounded-sm",
@@ -29,7 +29,7 @@ export const Input = ({
   variant = "default",
   className,
   ...props
-}: InputProps) => {
+}: PolymorphicComponentProps<"input", InputProps>) => {
   const tailwind = generateClassName(InputVariantMap[variant], InputSizeMap[size], className);
 
   return (

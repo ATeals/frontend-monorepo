@@ -1,9 +1,10 @@
+import { AsChildProps, Slot } from "@/common/Slot";
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 
-type TextProps<T extends React.ElementType> = {
+type TextProps = {
   size?: keyof typeof TextSizeMap;
-} & PolymorphicComponentProps<T>;
+} & AsChildProps;
 
 const TextSizeMap = {
   sm: "text-sm",
@@ -18,9 +19,10 @@ export const Text = <T extends React.ElementType = "p">({
   size = "md",
   children,
   className,
+  asChild,
   ...props
-}: TextProps<T>) => {
-  const Element = as || "p";
+}: PolymorphicComponentProps<T, TextProps>) => {
+  const Element = asChild ? Slot : as || "p";
 
   const tailwind = generateClassName(TextSizeMap[size], className);
 

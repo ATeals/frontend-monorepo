@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Grid } from ".";
 import { Box } from "../Box";
 
+/**
+ * 다형성 Grid 컴포넌트
+ */
 const meta = {
   title: "Atoms/Grid",
   component: Grid.Container,

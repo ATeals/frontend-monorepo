@@ -1,14 +1,15 @@
+import { AsChildProps, Slot } from "@/common/Slot";
 import { PolymorphicComponentProps, PolymorphicRef } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 import React, { forwardRef } from "react";
 
-type ButtonProps<T extends React.ElementType> = {
+type ButtonProps = {
   size?: keyof typeof ButtonSizeMap;
   variant?: keyof typeof ButtonVariantMap;
-} & PolymorphicComponentProps<T>;
+} & AsChildProps;
 
 type ForwardRefButtonComopnent = <T extends React.ElementType = "button">(
-  props: ButtonProps<T>,
+  props: PolymorphicComponentProps<T, ButtonProps>,
   ref: PolymorphicRef<T>
 ) => React.ReactNode;
 
@@ -25,33 +26,33 @@ const ButtonVariantMap = {
   none: "",
 };
 
-export const ButtonComponet = <T extends React.ElementType = "button">(
+export const ButtonComponent = <T extends React.ElementType = "button">(
   {
     as,
     style,
     children,
-    className = "",
+    asChild,
     size = "md",
     variant = "primary",
     ...props
-  }: ButtonProps<T>,
+  }: PolymorphicComponentProps<T, ButtonProps>,
   ref: PolymorphicRef<T>
 ) => {
-  const Element = as || "button";
+  const Element = asChild ? Slot : as || "button";
 
   const tailwind = generateClassName(
     "cursor-pointer flex justify-center items-center",
     ButtonSizeMap[size],
     ButtonVariantMap[variant],
     props.disabled && "bg-gray-400",
-    className
+    props.className
   );
 
   return (
-    <Element ref={ref} className={variant === "none" ? className : tailwind} {...props}>
+    <Element ref={ref} className={variant === "none" ? props.className : tailwind} {...props}>
       {children}
     </Element>
   );
 };
 
-export const Button: ForwardRefButtonComopnent = forwardRef(ButtonComponet);
+export const Button: ForwardRefButtonComopnent = forwardRef(ButtonComponent);
