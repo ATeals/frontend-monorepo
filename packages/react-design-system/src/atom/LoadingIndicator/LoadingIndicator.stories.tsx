@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LoadingIndicator } from ".";
 
+/**
+ * LoadingIndicator 컴포넌트
+ */
 const meta = {
   title: "Atoms/LoadingIndicator",
   component: LoadingIndicator,

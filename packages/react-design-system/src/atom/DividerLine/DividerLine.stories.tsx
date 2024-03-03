@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DividerLine } from ".";
 
+/**
+ * DividerLine 컴포넌트
+ *
+ * 공간을 나눠 줌
+ */
 const meta = {
   title: "Atoms/DividerLine",
   component: DividerLine,

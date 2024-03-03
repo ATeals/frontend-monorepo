@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Ring } from "./Ring";
 
+/**
+ *  다형성 Ring 컴포넌트
+ */
 const meta = {
   title: "Atoms/Ring",
   component: Ring,

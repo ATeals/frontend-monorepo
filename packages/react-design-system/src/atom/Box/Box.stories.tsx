@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "./Box";
 
+/**
+ * 다형성 Box 컴포넌트
+ */
 const meta = {
   title: "Atoms/Box",
   component: Box,

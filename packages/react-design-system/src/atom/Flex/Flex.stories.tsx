@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Flex } from ".";
 import { Box } from "../Box";
 
+/**
+ * 다형성 Flex 컴포넌트
+ */
 const meta = {
   title: "Atoms/Flex",
   component: Flex,
