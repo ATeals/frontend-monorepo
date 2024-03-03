@@ -1,15 +1,15 @@
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 
-type LableProps = {
+type LabelProps = {
   isRequired?: boolean;
 };
 
-export const Lable = ({
+export const Label = ({
   id,
   children,
   isRequired = false,
   ...props
-}: PolymorphicComponentProps<"label", LableProps>) => {
+}: PolymorphicComponentProps<"label", LabelProps>) => {
   return (
     <label {...props} htmlFor={id} style={{ display: "flex", ...props.style }}>
       {children} {isRequired && <span className="text-red-500 ml-1">*</span>}

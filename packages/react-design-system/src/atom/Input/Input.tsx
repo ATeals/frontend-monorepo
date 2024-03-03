@@ -1,6 +1,5 @@
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
-import { ComponentPropsWithoutRef } from "react";
 
 type InputProps = {
   size?: keyof typeof InputSizeMap;
