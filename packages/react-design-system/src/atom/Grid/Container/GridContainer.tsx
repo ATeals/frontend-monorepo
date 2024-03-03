@@ -1,16 +1,16 @@
 import { generateClassName } from "@/utils/generateClassName";
 import { GridContainerStyles, getGridContainerStyles } from "./GridContainer.styles";
+import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 
-type GridContainerProps<T extends React.ElementType> = {
+type GridContainerProps = {
   style?: GridContainerStyles & React.CSSProperties;
-  as?: T;
-} & Omit<React.ComponentPropsWithoutRef<T>, "style">;
+};
 
 export const GridContainer = <T extends React.ElementType = "div">({
   as,
   style = {},
   ...props
-}: GridContainerProps<T>) => {
+}: PolymorphicComponentProps<T, GridContainerProps>) => {
   const Element = as || "div";
 
   const tailwind = generateClassName(props.className);

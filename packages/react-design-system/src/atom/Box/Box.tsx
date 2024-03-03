@@ -1,10 +1,10 @@
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 
-type BoxProps<T extends React.ElementType> = {
+type BoxProps = {
   size?: keyof typeof BoxSizeMap;
   variant?: keyof typeof BoxVariantMap;
-} & PolymorphicComponentProps<T>;
+};
 
 const BoxSizeMap = {
   sm: " w-[2rem] h-[2rem] rounded-sm",
@@ -30,7 +30,7 @@ export const Box = <T extends React.ElementType = "div">({
   children,
   className,
   ...props
-}: BoxProps<T>) => {
+}: PolymorphicComponentProps<T, BoxProps>) => {
   const Element = as || "div";
 
   const tailwind = generateClassName(

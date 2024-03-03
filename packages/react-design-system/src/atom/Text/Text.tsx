@@ -1,9 +1,9 @@
 import { PolymorphicComponentProps } from "@/types/PolymorphicComponentProps";
 import { generateClassName } from "@/utils/generateClassName";
 
-type TextProps<T extends React.ElementType> = {
+type TextProps = {
   size?: keyof typeof TextSizeMap;
-} & PolymorphicComponentProps<T>;
+};
 
 const TextSizeMap = {
   sm: "text-sm",
@@ -19,7 +19,7 @@ export const Text = <T extends React.ElementType = "p">({
   children,
   className,
   ...props
-}: TextProps<T>) => {
+}: PolymorphicComponentProps<T, TextProps>) => {
   const Element = as || "p";
 
   const tailwind = generateClassName(TextSizeMap[size], className);

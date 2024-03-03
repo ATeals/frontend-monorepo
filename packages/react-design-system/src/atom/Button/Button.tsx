@@ -2,13 +2,13 @@ import { PolymorphicComponentProps, PolymorphicRef } from "@/types/PolymorphicCo
 import { generateClassName } from "@/utils/generateClassName";
 import React, { forwardRef } from "react";
 
-type ButtonProps<T extends React.ElementType> = {
+type ButtonProps = {
   size?: keyof typeof ButtonSizeMap;
   variant?: keyof typeof ButtonVariantMap;
-} & PolymorphicComponentProps<T>;
+};
 
 type ForwardRefButtonComopnent = <T extends React.ElementType = "button">(
-  props: ButtonProps<T>,
+  props: PolymorphicComponentProps<T, ButtonProps>,
   ref: PolymorphicRef<T>
 ) => React.ReactNode;
 
@@ -34,7 +34,7 @@ export const ButtonComponet = <T extends React.ElementType = "button">(
     size = "md",
     variant = "primary",
     ...props
-  }: ButtonProps<T>,
+  }: PolymorphicComponentProps<T, ButtonProps>,
   ref: PolymorphicRef<T>
 ) => {
   const Element = as || "button";
