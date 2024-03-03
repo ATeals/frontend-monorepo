@@ -5,7 +5,7 @@ export { Flex } from "./Flex";
 export { Grid } from "./Grid";
 export { Heading } from "./Heading";
 export { Input } from "./Input";
-export { Lable } from "./Lable";
+export { Label } from "./Label";
 export { LoadingIndicator } from "./LoadingIndicator";
 export { Ring } from "./Ring";
 export { Text } from "./Text";
