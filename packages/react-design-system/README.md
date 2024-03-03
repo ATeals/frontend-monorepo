@@ -2,7 +2,7 @@
 
 StoryBook으로 관리하는 리액트 디자인 시스템
 
-[🔗StoryBook](https://65e231600d8b62ce11b26631-eonvobivpt.chromatic.com/)
+[🔗StoryBook](http://www.chromatic.com/library?appId=65e231600d8b62ce11b26631)
 
 ## 의존성
 
