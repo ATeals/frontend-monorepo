@@ -5,3 +5,7 @@
 리액트 디자인 시스템
 
 - [StoryBook 🔗](http://www.chromatic.com/library?appId=65e231600d8b62ce11b26631)
+
+## [React Shared](https://github.com/ATeals/frontend-monorepo/tree/main/packages/react-shared)
+
+리액트 라이브러리
