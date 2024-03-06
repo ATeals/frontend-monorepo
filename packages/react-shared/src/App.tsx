@@ -2,7 +2,7 @@ import { useShortCutKey } from "./useShortCutKey";
 
 const App = () => {
   const KeyShortCut = {
-    keys: ["alt", "."],
+    keys: ["CMD", "k"],
     callbackFn: () => {
       alert("k");
     },

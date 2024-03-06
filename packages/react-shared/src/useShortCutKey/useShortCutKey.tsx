@@ -1,45 +1,25 @@
 import { useCallback, useLayoutEffect, useMemo } from "react";
-import { changeKeytoCode } from "./utills";
-
-export interface ShortCutKey {
-  keys: string[];
-  callbackFn: () => unknown;
-}
+import { ShortCutEntity, ShortCutKey } from "./entities";
 
 export const useShortCutKey = (ShortCutKey: ShortCutKey) => {
-  const KeyMap = useMemo(
-    () => ({
-      keys: ShortCutKey.keys.reduce(
-        (a: { [key: string]: boolean }, c) => ({
-          ...a,
-          [changeKeytoCode(c)]: false,
-        }),
-        {}
-      ),
-      callbackFn: ShortCutKey.callbackFn,
-    }),
-    [ShortCutKey]
-  );
+  const ShortCut = useMemo(() => new ShortCutEntity(ShortCutKey), [ShortCutKey]);
 
   const handleKeyUp = useCallback(() => {
-    for (const key of Object.keys(KeyMap.keys)) {
-      KeyMap.keys[key] = false;
-    }
-  }, [KeyMap]);
+    ShortCut.clearKeys();
+  }, [ShortCut]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      const key = changeKeytoCode(e.code);
-      if (key in KeyMap.keys) {
-        KeyMap.keys[changeKeytoCode(key)] = true;
+      if (ShortCut.isKeyInShortCut(e.code)) {
+        ShortCut.keyDown(e.code);
       }
 
-      if (Object.values(KeyMap.keys).every((i) => i)) {
-        KeyMap.callbackFn();
-        handleKeyUp();
+      if (ShortCut.isAllKeyDown) {
+        ShortCut.callback();
+        ShortCut.clearKeys();
       }
     },
-    [KeyMap, handleKeyUp]
+    [ShortCut]
   );
 
   useLayoutEffect(() => {
