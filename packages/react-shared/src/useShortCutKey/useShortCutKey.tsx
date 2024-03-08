@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { ShortCutEntity, ShortCutKey } from "./entities";
 
 export const useShortCutKey = (ShortCutKey: ShortCutKey) => {
@@ -22,7 +22,7 @@ export const useShortCutKey = (ShortCutKey: ShortCutKey) => {
     [ShortCut]
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
