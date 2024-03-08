@@ -14,7 +14,7 @@
       "persistent": true
     },
     "test": {
-      "cache": false
+      "dependsOn": ["^build"]
     },
     "storybook": {}
   }
