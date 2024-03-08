@@ -1,4 +1,4 @@
-name: React Shared Test
+name: React Shared Test and Auto Merge
 
 on:
   pull_request:
@@ -13,23 +13,28 @@ on:
       - "packages/react-shared/src/**"
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    name: Test
-
-    strategy:
-      matrix:
-        node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci
 
       - name: Run tests
         run: npm run test
+
+  automerge:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Automerge
+        uses: pascalgn/automerge-action@v0.14.3
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
