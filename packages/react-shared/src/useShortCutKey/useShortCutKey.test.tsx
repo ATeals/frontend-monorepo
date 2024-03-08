@@ -1,5 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import { ShortCutKey, useShortCutKey } from "./useShortCutKey";
+import { useShortCutKey } from "./useShortCutKey";
+import { ShortCutKey } from "./entities";
 
 const TestComponent = ({ shortCutKey }: { shortCutKey: ShortCutKey }) => {
   useShortCutKey(shortCutKey);

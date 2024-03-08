@@ -50,3 +50,13 @@ export const changeKeytoCode = (key: string) => {
     ? modifierKeys[key]
     : key;
 };
+
+export const convertStringArrayToShortcutkeys = (strings: string[]) => {
+  return strings.reduce(
+    (a: { [key: string]: boolean }, c) => ({
+      ...a,
+      [changeKeytoCode(c)]: false,
+    }),
+    {}
+  );
+};

@@ -1,0 +1,27 @@
+name: React Shared Test and Auto Merge
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "packages/react-shared/src/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/react-shared/src/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
