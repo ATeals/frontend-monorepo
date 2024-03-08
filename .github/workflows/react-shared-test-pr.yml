@@ -13,20 +13,25 @@ on:
       - "packages/react-shared/src/**"
 
 jobs:
-  test:
+  chromatic-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: "14"
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.16.0"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
       - name: Run tests
         run: pnpm run test
