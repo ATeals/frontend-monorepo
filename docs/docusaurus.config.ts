@@ -7,12 +7,11 @@ const config: Config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  url: "https://github.com/ATeals/frontend-monorepo",
+  url: "https://github.com",
+  baseUrl: "/ATeals/frontend-monorepo/",
   projectName: "DUCK_LAB",
   organizationName: "ateals",
   trailingSlash: false,
-
-  baseUrl: "/",
 
   onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
