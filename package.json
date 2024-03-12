@@ -7,7 +7,8 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "test": "turbo test"
+    "test": "turbo test",
+    "docs": "turbo docs"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
