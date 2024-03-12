@@ -26,7 +26,6 @@ export const OverlayProvider = ({ children }: { children: React.ReactNode }) => 
     <OverlayContext.Provider value={value}>
       {children}
       {[...overlays.entries()].map(([id, overlay]) => {
-        console.log("render overlay", id, overlay);
         return <Fragment key={id}>{overlay}</Fragment>;
       })}
     </OverlayContext.Provider>
