@@ -7,12 +7,12 @@ const config: Config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://github.com/ATeals/frontend-monorepo",
+  projectName: "DUCK_LAB",
+  organizationName: "ateals",
+  trailingSlash: false,
 
   baseUrl: "/",
-
-  organizationName: "facebook",
-  projectName: "DUCK_LAB",
 
   onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
