@@ -8,7 +8,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   url: "https://github.com",
-  baseUrl: "/ATeals/frontend-monorepo/",
+  baseUrl: "/frontend-monorepo/",
   projectName: "DUCK_LAB",
   organizationName: "ateals",
   trailingSlash: false,
