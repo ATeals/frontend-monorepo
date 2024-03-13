@@ -1,6 +1,6 @@
 import { HANGUL_MAP } from "./const";
 
-export const ishangul = (word: string) => /[\uAC00-\uD7A3]/g.test(word);
+export const isHangul = (word: string) => /[\uAC00-\uD7A3]/g.test(word);
 
 export const getChosung = (hangul: string) => splitHangul(hangul)[0];
 
